@@ -1,10 +1,12 @@
+*This repository is used to store all about closures taught by Jonas Schmedtmann and Paul Binns.*
+
 # Closure
 
 - Closure occurs where a function is defined and the function definition accesses variables outside of it's function scope.
 
 - The fuction maintains a link to those variables throughout its lifetime.
 
-- When a function is defined within another function, the inner function will maintain a link to the external variables that were in existance at the time the function was defined, even after the outer function has completed and been garbage collected
+- When a function is defined within another function, the inner function will maintain a link to the external variables that were in existance at the time the function was defined, even after the outer function has completed and been garbage collected = An inner function has always access to the variables and parameters of its outer function, even after the outer function has returned.
 
 # Closure...What is it Good for?
 
@@ -157,12 +159,12 @@ function incrementWrapper() {
 
     return function increment() {
         count += 1;
-        // console.log(count);
+        console.log(count);
     }
 }
 
 var triggerIncrementWrapper = incrementWrapper();
-triggerIncrementWrapper(console.log(count));
+triggerIncrementWrapper();
 ``` 
 ## Module Pattern
 ```javascript
@@ -199,4 +201,63 @@ function Counter() {
 }
 
 var newCounter = new Counter();
+```
+## Closure Examples
+
+1)
+
+```javascript
+function retirement(retirementAge) {
+    let a = ' years left until retirement.';
+    return function(yearOfBirth) {
+        var age = 2018 - yearOfBirth;
+        console.log((retirementAge - age) + a);
+    }
+}
+
+var retirementUS = retirement(66);
+retirementUS(1990);
+
+retirement(66)(1990)
+```
+2.
+
+// Before
+
+```javascript
+function interviewQuestion(job) {
+    if (job === 'designer') {
+        return function(name) {
+            console.log(name + ', can you please explain what UX design is?');
+        }
+    } else if (job === 'teacher') {
+        return function(name) {
+            console.log('What subject do you teach, ' + name + '?');
+        }
+    } else {
+        return function(name) {
+            console.log('Hello ' + name + ', what do you do?');
+        }
+    }
+}
+
+interviewQuestion('teacher')('John')
+```
+
+// After (in Closure)
+
+```javascript
+function interviewQuestion(job) {
+    return function(name) {
+        if (job === 'designer') {
+            console.log(name + ', can you please explain what UX design is?');
+        } else if (job === 'teacher') {
+            console.log('What subject do you teach, ' + name + '?');
+        } else {
+            console.log('Hello ' + name + ', what do you do?');
+        }
+    }
+}
+
+interviewQuestion('teacher')('John')
 ```
