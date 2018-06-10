@@ -34,3 +34,13 @@ function logFunctionScope() {
 }
 logFunctionScope();
 ```
+
+## Function Scope Unavailable Outside the Function
+```javascript
+function logFunctionScope() {
+    let functionScope="I am in the function scope"
+    console.log(functionScope);
+}
+logFunctionScope();
+console.log(functionScope);
+```
