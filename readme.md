@@ -61,3 +61,13 @@ function addVariable(value) {
 }
 addVariable("I am a variable");
 ```
+## Creating Variables Inside a Function
+```javascript
+function internalVariable(value) {
+    var internalVariable = 2;
+    console.log(internalVariable * value)
+}
+
+internalVariable(3)
+```
+
