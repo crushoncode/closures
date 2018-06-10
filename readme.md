@@ -81,5 +81,58 @@ function usefulInternalVariable(value) {
 var newValue = usefulInternalVariable(3);
 console.log(newValue)
 ```
+## Useful Internal Variable Function 1)
+```javascript
+var returnProcessedVariable;
 
+function internalVariableAsClosure(value) {
+    var internalVariable = 2;
+
+    function multiplyInternalVariable(){
+        return internalVariable * value;
+    }
+    returnProcessedVariable = multiplyInternalVariable;
+}
+internal VariableAsClosure(4);
+returnProcessedVariable();
+```
+## Useful Internal Variable Function 2) 
+```javascript
+var later;
+
+function internalVariableClosure(value){
+    function multiplyInternalVariable(internalVariable){
+        return internalVariable * value;
+    }
+    later = multiplyInternalVariable;
+}
+internalVariableAsClosure(5);
+later(10);
+```
+## Useful Internal Variable Function 3)
+```javascript
+function internalVariableAsClosure(value){
+    return function(internalVariable){
+        return internalVariable * value;
+    }
+} 
+
+var timesByTwo = internalVariableAsClosure(2);
+var later = timesByTwo(3);
+console.log(later);
+
+// or 
+
+var twoTimesThree = internalVariableAsClosure(2)(3);
+console.log(twoTimesThree);
+
+// or 
+
+var twoTimesThree = (function(x) {
+    return function(y
+    ) {
+        return console.log(x * y);
+    }
+})(2)(3);
+```
 
