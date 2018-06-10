@@ -20,4 +20,8 @@
 
 - Used for protection from colliding variables from js libraries - IIFE
 
-
+## Global Scope
+```javascript
+var global="I am in the global scope";
+console.log(global);
+```
