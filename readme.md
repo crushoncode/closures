@@ -185,3 +185,18 @@ console.log(counter1.getCount());
 counter1.increment();
 console.log(counter1.getCount());
 ```
+## Module Pattern the oop way
+
+```javascript
+function Counter() {
+    this.count = 0;
+    this.getCount = function() {
+        return this.count;
+    }
+    this.increment = function() {
+        this.count += 1;
+    }
+}
+
+var newCounter = new Counter();
+```
