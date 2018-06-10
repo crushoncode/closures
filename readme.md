@@ -71,3 +71,15 @@ function internalVariable(value) {
 internalVariable(3)
 ```
 
+## Creating variables 
+```javascript
+function usefulInternalVariable(value) {
+    var internalVarliable = 2;
+    return internalVariable * value;
+}
+
+var newValue = usefulInternalVariable(3);
+console.log(newValue)
+```
+
+
