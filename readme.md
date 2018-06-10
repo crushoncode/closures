@@ -53,3 +53,11 @@ function logGlobal(){
 }
 logGlobal();
 ```
+
+## Assignment of Parameters
+```javascript
+function addVariable(value) {
+    console.log(value);
+}
+addVariable("I am a variable");
+```
