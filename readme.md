@@ -163,4 +163,25 @@ function incrementWrapper() {
 
 var triggerIncrementWrapper = incrementWrapper();
 triggerIncrementWrapper(console.log(count));
+``` 
+## Module Pattern
+```javascript
+function counter() {
+    let count = 0;
+    function getCount(){
+        return count;
+    }
+    function increment() {
+        count += 1;
+    }
+    return {
+        getCount: getCount,
+        increment: increment
+    }
+}
+
+var counter1 = counter();
+console.log(counter1.getCount());
+counter1.increment();
+console.log(counter1.getCount());
 ```
