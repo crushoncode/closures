@@ -44,3 +44,12 @@ function logFunctionScope() {
 logFunctionScope();
 console.log(functionScope);
 ```
+
+## Access Global Scope Within a Function
+```javascript
+var global="I am in the global scope";
+function logGlobal(){
+    console.log(global);
+}
+logGlobal();
+```
