@@ -135,4 +135,32 @@ var twoTimesThree = (function(x) {
     }
 })(2)(3);
 ```
+## Global Scope Compared To Function (Closure Based) Scope
 
+- Global Scope:
+```javascript
+var count = 0;
+
+function increment() {
+    count += 1;
+    console.log('count', count);
+}
+
+increment();
+```
+
+- Closure:
+```javascript
+function incrementWrapper() {
+    
+    let count = 0;
+
+    return function increment() {
+        count += 1;
+        // console.log(count);
+    }
+}
+
+var triggerIncrementWrapper = incrementWrapper();
+triggerIncrementWrapper(console.log(count));
+```
