@@ -25,3 +25,12 @@
 var global="I am in the global scope";
 console.log(global);
 ```
+
+## Function Scope
+```javascript
+function logFunctionScope() {
+    let functionScope="I am in the function scope"
+    console.log(functionScope);
+}
+logFunctionScope();
+```
